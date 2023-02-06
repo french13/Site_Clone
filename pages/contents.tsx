@@ -1,12 +1,173 @@
-import React from 'react'
+import type { NextPage } from 'next'
+import Head from 'next/head'
+import Image from 'next/image'
+import styled from 'styled-components'
 import Layout from '../components/Layout'
 
-const contents = () => {
+const MainContainer = styled.div`
+width : 100vw;
+height : 100vh;
+display : flex;
+justify-content : center;
+overflow : hidden;
+position : absolute;
+z-index : 1;
+`
+
+const ContentBgImg = styled.img`
+
+`
+
+const HomeContainer = styled.div`
+position : absolute;
+width : 100%;
+height : 100%;
+background-color : rgba(0,0,0,0.4);
+display : flex;
+justify-content : center;
+align-items : center;
+`
+
+const ContainerContent = styled.div`
+width : 100vw;
+padding : 0px 130px;
+display : flex;
+justify-content : center;
+align-items : center;
+flex-direction : column;
+`
+
+const ContentsTitle = styled.div`
+width : 210px;
+color : white;
+font-size : 18px;
+text-align : center;
+letter-spacing : 15px;
+font-weight : 300;
+margin-bottom : 10px;
+`
+const ContentsSubTitle = styled.div`
+width : 210px;
+height : 45px;
+color : white;
+text-align : center;
+font-size : 30px;
+position : relative;
+font-weight : 900;
+margin-bottom : 40px;
+`
+
+const ContentsCards = styled.div`
+width : 1400px;
+height : 470px;
+display : flex;
+justify-content : space-between;
+padding : 10px;
+`
+
+const EmptyCard = styled.div`
+width : 250px;
+height : 100%;
+border : none;
+background: linear-gradient(rgb(50,50,50), black);
+display : flex;
+justify-content : center;
+align-items : center;
+flex-direction : column;
+`
+const Card = styled.div`
+width : 250px;
+height : 100%;
+border : none;
+background: linear-gradient(rgb(50,50,50), black);
+display : flex;
+justify-content : center;
+align-items : center;
+flex-direction : column;
+position : relative;
+overflow : hidden;
+
+&:hover {
+  & > img {
+    scale : 1.2; 
+  }
+}
+
+& > img {
+  width : 100%;
+  height : 100%;
+  transition : all 0.5s
+}
+`
+
+const AlertIcon = styled.img`
+height : 55%;
+margin : 0 15px;
+margin-top : 13%;
+`
+
+const CardContext = styled.div`
+position : absolute;
+width : 100%;
+bottom : 0;
+text-align : center;
+padding : 30px 0;
+background: linear-gradient(rgba(70,70,70,0), rgba(0,0,0,1));
+border : none;
+`
+
+const Contents = () => {
   return (
     <Layout>
-    <div>contents</div>
+      <MainContainer>
+        <ContentBgImg src='https://bclover-mobile.vicgame.kr/image/contents/contents_back_1920.webp' alt="contents-bg" />
+        <HomeContainer>
+          <ContainerContent>
+            <ContentsTitle>contents</ContentsTitle>
+            <ContentsSubTitle>
+              <div style={{ position: "absolute", width: "100%", top: 0, zIndex: 2 }}>콘텐츠</div>
+              <div style={{ position: "absolute", width: "100%", borderBottom: "solid 20px rgba(255,255,255,0.3)", bottom: 0, zIndex: 1 }}></div>
+            </ContentsSubTitle>
+            <ContentsCards>
+              <EmptyCard>
+                <img src='https://bclover-mobile.vicgame.kr/svg/lock_contents.svg' />
+                <div style={{ fontSize: "27px", marginTop: 10, color: "gray", fontWeight: 500 }}>COMING SOON</div>
+              </EmptyCard>
+              <AlertIcon src='https://bclover-mobile.vicgame.kr/svg/deco_contents.svg' alt='line-icon' />
+              <Card>
+                <img src='https://bclover-mobile.vicgame.kr/image/contents/contents_world.webp' />
+                <CardContext>
+                  <div style={{ fontSize: 25, color: 'white', fontWeight: 800 }}>월드 콘텐츠</div>
+                  <div style={{ fontSize: 20, color: "lightgray" }}>
+                    <span>#낚시</span>
+                    <span>#탐색</span>
+                  </div>
+                </CardContext>
+              </Card>
+              <AlertIcon src='https://bclover-mobile.vicgame.kr/svg/deco_contents.svg' alt='line-icon' />
+              <Card>
+                <img src='https://bclover-mobile.vicgame.kr/image/contents/contents_story.webp' />
+                <CardContext>
+                  <div style={{ fontSize: 25, color: 'white', fontWeight: 800 }}>스토리 모드</div>
+                  <div style={{ fontSize: 20, color: "lightgray" }}><span> #마법세계</span></div>
+                </CardContext>
+              </Card>
+              <AlertIcon src='https://bclover-mobile.vicgame.kr/svg/deco_contents.svg' alt='line-icon' />
+              <EmptyCard>
+                <img src='https://bclover-mobile.vicgame.kr/svg/lock_contents.svg' />
+                <div style={{ fontSize: "27px", marginTop: 10, color: "gray", fontWeight: 500 }}>COMING SOON</div>
+              </EmptyCard>
+              <AlertIcon src='https://bclover-mobile.vicgame.kr/svg/deco_contents.svg' alt='line-icon' />
+              <EmptyCard>
+                <img src='https://bclover-mobile.vicgame.kr/svg/lock_contents.svg' />
+                <div style={{ fontSize: "27px", marginTop: 10, color: "gray", fontWeight: 500 }}>COMING SOON</div>
+              </EmptyCard>
+            </ContentsCards>
+          </ContainerContent>
+        </HomeContainer>
+      </MainContainer>
     </Layout>
   )
 }
 
-export default contents
+export default Contents
