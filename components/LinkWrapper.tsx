@@ -1,12 +1,16 @@
 import styled from "styled-components"
 import Link from "next/link"
-
+import { tabletSize } from "../styles/tabletSize"
 const LinkItems = styled.div`
 position : absolute;
 top : 100px;
 right : 0;
 width : 350px;
 z-index : 5;
+
+@media screen and (${tabletSize}){
+    display : none;
+  }
 `
 const LinkItem = styled.div`
 width : 100%;

@@ -1,0 +1,1 @@
+export const tabletSize = "max-width : 1360px"

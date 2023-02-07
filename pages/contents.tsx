@@ -1,32 +1,12 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import styled from 'styled-components'
 import Layout from '../components/Layout'
+import ContentEmptyCard from '../components/ContentEmptyCard'
+import { MainContainer, HomeContainer } from '../styles/styleComponents'
 
-const MainContainer = styled.div`
-width : 100vw;
-height : 100vh;
-display : flex;
-justify-content : center;
-overflow : hidden;
-position : absolute;
-z-index : 1;
-`
-
-const ContentBgImg = styled.img`
-
-`
-
-const HomeContainer = styled.div`
-position : absolute;
-width : 100%;
-height : 100%;
-background-color : rgba(0,0,0,0.4);
-display : flex;
-justify-content : center;
-align-items : center;
-`
 
 const ContainerContent = styled.div`
 width : 100vw;
@@ -36,7 +16,6 @@ justify-content : center;
 align-items : center;
 flex-direction : column;
 `
-
 const ContentsTitle = styled.div`
 width : 210px;
 color : white;
@@ -56,28 +35,16 @@ position : relative;
 font-weight : 900;
 margin-bottom : 40px;
 `
-
 const ContentsCards = styled.div`
 width : 1400px;
 height : 470px;
 display : flex;
 justify-content : space-between;
-padding : 10px;
-`
-
-const EmptyCard = styled.div`
-width : 250px;
-height : 100%;
-border : none;
-background: linear-gradient(rgb(50,50,50), black);
-display : flex;
-justify-content : center;
-align-items : center;
-flex-direction : column;
+padding : 20px;
 `
 const Card = styled.div`
-width : 250px;
-height : 100%;
+width : 235px;
+height : 95%;
 border : none;
 background: linear-gradient(rgb(50,50,50), black);
 display : flex;
@@ -92,7 +59,6 @@ overflow : hidden;
     scale : 1.2; 
   }
 }
-
 & > img {
   width : 100%;
   height : 100%;
@@ -120,7 +86,7 @@ const Contents = () => {
   return (
     <Layout>
       <MainContainer>
-        <ContentBgImg src='https://bclover-mobile.vicgame.kr/image/contents/contents_back_1920.webp' alt="contents-bg" />
+        <img src='https://bclover-mobile.vicgame.kr/image/contents/contents_back_1920.webp' alt="contents-bg" />
         <HomeContainer>
           <ContainerContent>
             <ContentsTitle>contents</ContentsTitle>
@@ -129,10 +95,7 @@ const Contents = () => {
               <div style={{ position: "absolute", width: "100%", borderBottom: "solid 20px rgba(255,255,255,0.3)", bottom: 0, zIndex: 1 }}></div>
             </ContentsSubTitle>
             <ContentsCards>
-              <EmptyCard>
-                <img src='https://bclover-mobile.vicgame.kr/svg/lock_contents.svg' />
-                <div style={{ fontSize: "27px", marginTop: 10, color: "gray", fontWeight: 500 }}>COMING SOON</div>
-              </EmptyCard>
+              <ContentEmptyCard />
               <AlertIcon src='https://bclover-mobile.vicgame.kr/svg/deco_contents.svg' alt='line-icon' />
               <Card>
                 <img src='https://bclover-mobile.vicgame.kr/image/contents/contents_world.webp' />
@@ -145,23 +108,19 @@ const Contents = () => {
                 </CardContext>
               </Card>
               <AlertIcon src='https://bclover-mobile.vicgame.kr/svg/deco_contents.svg' alt='line-icon' />
-              <Card>
-                <img src='https://bclover-mobile.vicgame.kr/image/contents/contents_story.webp' />
-                <CardContext>
-                  <div style={{ fontSize: 25, color: 'white', fontWeight: 800 }}>스토리 모드</div>
-                  <div style={{ fontSize: 20, color: "lightgray" }}><span> #마법세계</span></div>
-                </CardContext>
-              </Card>
+              <Link href='/contents/storyMode'>
+                <Card>
+                  <img src='https://bclover-mobile.vicgame.kr/image/contents/contents_story.webp' />
+                  <CardContext>
+                    <div style={{ fontSize: 25, color: 'white', fontWeight: 800 }}>스토리 모드</div>
+                    <div style={{ fontSize: 20, color: "lightgray" }}><span> #마법세계</span></div>
+                  </CardContext>
+                </Card>
+              </Link>
               <AlertIcon src='https://bclover-mobile.vicgame.kr/svg/deco_contents.svg' alt='line-icon' />
-              <EmptyCard>
-                <img src='https://bclover-mobile.vicgame.kr/svg/lock_contents.svg' />
-                <div style={{ fontSize: "27px", marginTop: 10, color: "gray", fontWeight: 500 }}>COMING SOON</div>
-              </EmptyCard>
+              <ContentEmptyCard />
               <AlertIcon src='https://bclover-mobile.vicgame.kr/svg/deco_contents.svg' alt='line-icon' />
-              <EmptyCard>
-                <img src='https://bclover-mobile.vicgame.kr/svg/lock_contents.svg' />
-                <div style={{ fontSize: "27px", marginTop: 10, color: "gray", fontWeight: 500 }}>COMING SOON</div>
-              </EmptyCard>
+              <ContentEmptyCard />
             </ContentsCards>
           </ContainerContent>
         </HomeContainer>

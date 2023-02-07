@@ -6,7 +6,7 @@ import styled from "styled-components"
 import { logo } from "../public/assets/imgSrc"
 import LinkWrapper from "./LinkWrapper"
 import Link from "next/link"
-
+import { tabletSize } from "../styles/tabletSize"
 const Wrapper = styled.div`
 width : 100vw;
 height : 100vh;
@@ -20,8 +20,10 @@ height : 70px;
 z-index : 10;
 top : 20px;
 left : 80px;
+@media screen and (${tabletSize}){
+    display : none;
+  }
 `
-
 
 // ReactElemet, ReactNode 둘중에 좀더 미시적인 Element를 사용하였다. Node는 좀더 범위가 크다. 참고 블로그 https://merrily-code.tistory.com/209
 interface Props {
