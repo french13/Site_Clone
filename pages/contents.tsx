@@ -6,6 +6,8 @@ import styled from 'styled-components'
 import Layout from '../components/Layout'
 import ContentEmptyCard from '../components/ContentEmptyCard'
 import { MainContainer, HomeContainer } from '../styles/styleComponents'
+import { tabletSize } from '../styles/tabletSize'
+import TabletContentItems from '../components/TabletContentCards'
 
 
 const ContainerContent = styled.div`
@@ -41,6 +43,10 @@ height : 470px;
 display : flex;
 justify-content : space-between;
 padding : 20px;
+
+@media screen and (${tabletSize}){
+  display : none;
+}
 `
 const Card = styled.div`
 width : 235px;
@@ -82,6 +88,7 @@ background: linear-gradient(rgba(70,70,70,0), rgba(0,0,0,1));
 border : none;
 `
 
+
 const Contents = () => {
   return (
     <Layout>
@@ -122,6 +129,7 @@ const Contents = () => {
               <AlertIcon src='https://bclover-mobile.vicgame.kr/svg/deco_contents.svg' alt='line-icon' />
               <ContentEmptyCard />
             </ContentsCards>
+            <TabletContentItems/>
           </ContainerContent>
         </HomeContainer>
       </MainContainer>
