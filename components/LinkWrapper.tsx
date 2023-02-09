@@ -50,11 +50,11 @@ const LinkWrapper = () => {
     return (
         <LinkItems>
             <LinkItem>
-                <ItemImg src="https://bclover-mobile.vicgame.kr/image/tw_btn_2x.webp" alt="카페링크 이미지" />
+                <ItemImg src="https://bclover-mobile.vicgame.jp/image/tw_btn_2x.webp" alt="카페링크 이미지" />
                 <LinkCafeContext>
-                    <LinkCafeTitle>공식 카페</LinkCafeTitle>
+                    <LinkCafeTitle>公式Twitter</LinkCafeTitle>
                     <div>
-                        <span style={{ fontSize: '13px', fontWeight: "400", height: "12px", color : "white", marginRight: "5px" }}>최신 정보 보러가기</span>
+                        <span style={{ fontSize: '13px', fontWeight: "400", height: "12px", color : "white", marginRight: "5px" }}>最新情報を見る</span>
                         <img src="https://bclover-mobile.vicgame.kr/svg/arrow_icon.svg" width={25} alt="arrow-icon" />
                     </div>
                 </LinkCafeContext>

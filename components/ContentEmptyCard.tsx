@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 const EmptyCard = styled.div`
 width : 235px;
-height : 95%;
+height : 100%;
 border : none;
 background: linear-gradient(rgb(50,50,50), black);
 display : flex;

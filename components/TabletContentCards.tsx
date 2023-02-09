@@ -2,10 +2,12 @@ import styled from "styled-components"
 import { PlusCircleOutlined } from '@ant-design/icons'
 import { tabletSize } from "../styles/tabletSize"
 import Link from "next/link"
+import { boxAnimation } from "../styles/styleComponents"
 
 const TabletContentCards = styled.ul`
 padding : 0;
 display : none;
+animation : ${boxAnimation} 1s linear;
 @media screen and (${tabletSize}){
     display : block;
   }
@@ -65,7 +67,7 @@ const TabletContentItems = () => {
           <img src="https://bclover-mobile.vicgame.kr/image/contents/m_contents_thum_story.webp" width='100%' alt="" />
           <div>
             <span><PlusCircleOutlined style={{ fontSize: '30px' }} /></span>
-            <span>스토리모드</span>
+            <span>ストーリーモード</span>
           </div>
         </TabletContentCard>
       </Link>
@@ -73,7 +75,7 @@ const TabletContentItems = () => {
         <img src="https://bclover-mobile.vicgame.kr/image/contents/m_contents_thum_world.webp" width='100%' alt="" />
         <div>
           <span><PlusCircleOutlined style={{ fontSize: '30px' }} /></span>
-          <span>월드 콘텐츠</span>
+          <span>ワールド</span>
         </div>
       </TabletContentCard>
       <TabletContentEmptyCard>

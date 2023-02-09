@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import Layout from '../../components/Layout'
 import { CaretRightOutlined, SwapLeftOutlined, SwapRightOutlined, ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons'
-import { MainContainer, HomeContainer } from '../../styles/styleComponents'
+import { MainContainer, HomeContainer, boxAnimation } from '../../styles/styleComponents'
 import { tabletSize } from '../../styles/tabletSize'
+import Link from 'next/link'
 
 
 const VideoStyle = styled.video`
@@ -22,6 +23,7 @@ text-align : center;
 letter-spacing : 15px;
 font-weight : 300;
 margin-bottom : 10px;
+animation : ${boxAnimation} 1s linear;
 `
 const ContentsSubTitle = styled.div`
 width : 210px;
@@ -32,6 +34,7 @@ font-size : 30px;
 position : relative;
 font-weight : 900;
 margin-bottom : 40px;
+animation : ${boxAnimation} 1s linear;
 `
 const ButtonStyle = styled.button`
 background : none;
@@ -42,6 +45,7 @@ width : 200px;
 margin-right : 10px;
 font-size : 22px;
 color : white;
+transition : all 0.5s ;
 @media screen and (${tabletSize}){
   width : 150px;
   height : 40px;
@@ -53,6 +57,10 @@ const BackArrowStyle = styled.div`
 text-align : center;
 font-size : 20px;
 color : white;
+transition : all 1s;
+&:hover {
+  transform : translateX(-10px);
+}
 @media screen and (${tabletSize}){
   display : none;
 }
@@ -95,6 +103,7 @@ height : 450px;
 `
 const StoryModeBoxContext = styled.div`
 margin-bottom : 30px;
+animation : ${boxAnimation} 2s linear;
 
 & > h1 {
   font-size : 40px;
@@ -117,7 +126,9 @@ margin-bottom : 30px;
   }
 }
 `
-
+const Buttondiv = styled.div`
+animation : ${boxAnimation} 3s linear;
+`
 const StoryMode = () => {
   return (
     <Layout>
@@ -128,9 +139,11 @@ const StoryMode = () => {
         <HomeContainer>
           <ContainerContent>
             <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "200px" }}>
+              <Link href='/contents'>
               <BackArrowStyle>
-                <SwapLeftOutlined style={{ fontSize: "30px" }} />돌아가기
+                <SwapLeftOutlined style={{ fontSize: "30px" }} /><span style={{fontWeight : 800}}>戻る</span> 
               </BackArrowStyle>
+              </Link>
               <ArrowStyle>
               <ArrowLeftOutlined />
               </ArrowStyle>
@@ -138,18 +151,18 @@ const StoryMode = () => {
             <StoryModeBox>
               <ContentsTitle>contents</ContentsTitle>
               <ContentsSubTitle style={{ marginBottom: "70px" }}>
-                <div style={{ position: "absolute", width: "100%", top: 0, zIndex: 2 }}>콘텐츠</div>
+                <div style={{ position: "absolute", width: "100%", top: 0, zIndex: 2 }}>コンテンツ</div>
                 <div style={{ position: "absolute", width: "100%", borderBottom: "solid 20px rgba(255,255,255,0.3)", bottom: 0, zIndex: 1 }}></div>
               </ContentsSubTitle>
               <StoryModeBoxContext style={{ marginBottom: '30px' }}>
-                <h1>스토리모드</h1>
-                <div>마법의 세계를 경험하자! <br /> 애니메이션 스토리를 바탕으로<br /> 몰입도 높은 다양한 퀘스트가 구성되어 있습니다.</div>
+                <h1>ストーリーモード</h1>
+                <div>魔法の世界を体験しよう！ <br /> アニメーションのストーリーをベースに<br /> 没入感の高い、様々なクエストを用意！</div>
               </StoryModeBoxContext>
-              <div style={{ display: "flex", alignItems: "center" }}>
+              <Buttondiv style={{ display: "flex", alignItems: "center" }}>
                 <div>
                   <ButtonStyle>
                     <span style={{ marginRight: "10px" }}><CaretRightOutlined /></span>
-                    <span>영상보기</span>
+                    <span>映像を見る</span>
                   </ButtonStyle>
                 </div>
                 <NextPageButton>
@@ -163,10 +176,10 @@ const StoryMode = () => {
                   </div>
                   <div>
                     <div style={{ fontSize: "18px", color: "white" }}>NEXT CONTENTS</div>
-                    <div style={{ fontSize: "18px", color: "white", fontWeight: 800 }}>월드 컨텐츠</div>
+                    <div style={{ fontSize: "18px", color: "white", fontWeight: 800 }}>ワールド</div>
                   </div>
                 </NextPageButton>
-              </div>
+              </Buttondiv>
             </StoryModeBox>
             <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "200px" }}>
               <ArrowStyle>

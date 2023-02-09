@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 import { homeBgVideo } from '../public/assets/imgSrc'
 import { RightCircleOutlined } from '@ant-design/icons'
 import { tabletSize } from '../styles/tabletSize'
-import { MainContainer, HomeContainer } from '../styles/styleComponents'
+import { MainContainer, HomeContainer, boxAnimation } from '../styles/styleComponents'
 
 const VideoStyle = styled.video`
 width : 2500px;
@@ -33,6 +33,32 @@ font-size : 30px;
   }
 }
 `
+const PlayVideoDiv = styled.div`
+width : 100%;
+transition : all 0.5s;
+animation : ${boxAnimation} 3s linear ;
+
+&:hover {
+  transform : translateX(15px);
+}
+`
+const Imgdiv = styled.div`
+animation : ${boxAnimation} 1s linear ;
+`
+const Titlediv = styled.div`
+font-weight : 700;
+color  :white;
+width : 100%;
+animation : ${boxAnimation} 1.2s linear ;
+`
+const LineDiv = styled.div`
+animation : ${boxAnimation} 2s linear ;
+width : 100%;
+border-bottom : solid 0.5px white;
+margin : 20px 0;
+`
+
+
 
 const Home = () => {
   return (
@@ -43,13 +69,15 @@ const Home = () => {
         </VideoStyle>
         <HomeContainer>
           <ContainerContent  >
-            <div>
-              <img src='https://bclover-mobile.vicgame.kr/image/bc_main_logo_kr.webp' width={800}/>
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "280px" }}>
-              <div style={{ fontWeight: 800, color: "white", width: "100%" }}>블랙클로버 세계를 <br /> 게임으로 만나보세요</div>
-              <div className='line' style={{ width: "100%", borderBottom: "solid 0.5px white", margin: "20px 0" }}></div>
-              <div style={{ width: "100%", fontSize: "22px", color: "white", fontWeight: 800 }}> <RightCircleOutlined /> 트레일러 보기</div>
+            <Imgdiv>
+              <img src='https://bclover-mobile.vicgame.jp/image/bc_main_logo_jp.webp' width={780}/>
+            </Imgdiv>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "320px" }}>
+              <Titlediv>ブラッククローバーの <br /> 世界をゲームで体験！</Titlediv>
+              <LineDiv className='line'></LineDiv>
+              <PlayVideoDiv>
+              <div style={{ width: "100%", fontSize: "22px", color: "white", fontWeight: 800 }}> <RightCircleOutlined /> トレーラーを見る</div>
+              </PlayVideoDiv>
             </div>
           </ContainerContent>
         </HomeContainer>

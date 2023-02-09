@@ -61,17 +61,15 @@ const TabletMenuBarStyle = styled.div`
 
 `
 
-
-
 const Header = () => {
   const [translateY, setTranslateY] = useState<string | number>('-100%')
 
   const menu = [
-    { id: 1, title: "프롤로그", link: "/" },
-    { id: 2, title: "캐릭터", link: "/" },
-    { id: 3, title: "컨텐츠", link: "/contents" },
-    { id: 4, title: "세계", link: "/" },
-    { id: 5, title: "갤러리", link: "/" },
+    { id: 1, title: "プロローグ", link: "/" },
+    { id: 2, title: "キャラクター", link: "/" },
+    { id: 3, title: "コンテンツ", link: "/contents" },
+    { id: 4, title: "世界", link: "/" },
+    { id: 5, title: "ギャラリー", link: "/" },
   ]
 
   const overLayIn = () => {

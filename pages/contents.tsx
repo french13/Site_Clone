@@ -5,7 +5,7 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import Layout from '../components/Layout'
 import ContentEmptyCard from '../components/ContentEmptyCard'
-import { MainContainer, HomeContainer } from '../styles/styleComponents'
+import { MainContainer, HomeContainer, boxAnimation } from '../styles/styleComponents'
 import { tabletSize } from '../styles/tabletSize'
 import TabletContentItems from '../components/TabletContentCards'
 
@@ -26,6 +26,7 @@ text-align : center;
 letter-spacing : 15px;
 font-weight : 300;
 margin-bottom : 10px;
+animation : ${boxAnimation} 1s linear;
 `
 const ContentsSubTitle = styled.div`
 width : 210px;
@@ -36,6 +37,7 @@ font-size : 30px;
 position : relative;
 font-weight : 900;
 margin-bottom : 40px;
+animation : ${boxAnimation} 1s linear;
 `
 const ContentsCards = styled.div`
 width : 1400px;
@@ -43,6 +45,7 @@ height : 470px;
 display : flex;
 justify-content : space-between;
 padding : 20px;
+animation : ${boxAnimation} 1.5s linear;
 
 @media screen and (${tabletSize}){
   display : none;
@@ -52,14 +55,12 @@ const Card = styled.div`
 width : 235px;
 height : 95%;
 border : none;
-background: linear-gradient(rgb(50,50,50), black);
 display : flex;
 justify-content : center;
 align-items : center;
 flex-direction : column;
 position : relative;
-overflow : hidden;
-
+perspective : 800px;
 &:hover {
   & > img {
     scale : 1.2; 
@@ -88,6 +89,14 @@ background: linear-gradient(rgba(70,70,70,0), rgba(0,0,0,1));
 border : none;
 `
 
+const ContentImg = styled.img`
+width : 250px;
+transition : all 0.3s;
+&:hover {
+  scale : 1.2;
+}
+`
+
 
 const Contents = () => {
   return (
@@ -98,38 +107,54 @@ const Contents = () => {
           <ContainerContent>
             <ContentsTitle>contents</ContentsTitle>
             <ContentsSubTitle>
-              <div style={{ position: "absolute", width: "100%", top: 0, zIndex: 2 }}>콘텐츠</div>
+              <div style={{ position: "absolute", width: "100%", top: 0, zIndex: 2 }}>コンテンツ</div>
               <div style={{ position: "absolute", width: "100%", borderBottom: "solid 20px rgba(255,255,255,0.3)", bottom: 0, zIndex: 1 }}></div>
             </ContentsSubTitle>
-            <ContentsCards>
-              <ContentEmptyCard />
-              <AlertIcon src='https://bclover-mobile.vicgame.kr/svg/deco_contents.svg' alt='line-icon' />
+            <ContentsCards >
               <Card>
-                <img src='https://bclover-mobile.vicgame.kr/image/contents/contents_world.webp' />
-                <CardContext>
-                  <div style={{ fontSize: 25, color: 'white', fontWeight: 800 }}>월드 콘텐츠</div>
-                  <div style={{ fontSize: 20, color: "lightgray" }}>
-                    <span>#낚시</span>
-                    <span>#탐색</span>
-                  </div>
-                </CardContext>
+                <div style={{ width: '100%', height: '100%', transform: 'rotateY(-20deg)', overflow: 'hidden' }}>
+                  <ContentEmptyCard />
+                </div>
+              </Card>
+              <AlertIcon src='https://bclover-mobile.vicgame.kr/svg/deco_contents.svg' alt='line-icon' />
+              <Card >
+                <div style={{ width: '100%', height: '100%', transform: 'rotateY(20deg)', overflow: 'hidden' }}>
+                  <ContentImg src='https://bclover-mobile.vicgame.kr/image/contents/contents_world.webp' />
+                  <CardContext>
+                    <div style={{ fontSize: 25, color: 'white', fontWeight: 800 }}>ワールド</div>
+                    <div style={{ fontSize: 20, color: "lightgray" }}>
+                      <span>＃冒険 ＃釣り</span>
+                    </div>
+                  </CardContext>
+                </div>
               </Card>
               <AlertIcon src='https://bclover-mobile.vicgame.kr/svg/deco_contents.svg' alt='line-icon' />
               <Link href='/contents/storyMode'>
                 <Card>
-                  <img src='https://bclover-mobile.vicgame.kr/image/contents/contents_story.webp' />
-                  <CardContext>
-                    <div style={{ fontSize: 25, color: 'white', fontWeight: 800 }}>스토리 모드</div>
-                    <div style={{ fontSize: 20, color: "lightgray" }}><span> #마법세계</span></div>
-                  </CardContext>
+                  <div style={{ width: '100%', height: '100%', overflow: 'hidden' }}>
+                    <ContentImg src='https://bclover-mobile.vicgame.kr/image/contents/contents_story.webp'  />
+                    <CardContext>
+                      <div style={{ fontSize: 25, color: 'white', fontWeight: 800 }}>ストーリーモード</div>
+                      <div style={{ fontSize: 20, color: "lightgray" }}><span>#魔法の世界</span></div>
+                    </CardContext>
+                  </div>
                 </Card>
               </Link>
+
               <AlertIcon src='https://bclover-mobile.vicgame.kr/svg/deco_contents.svg' alt='line-icon' />
-              <ContentEmptyCard />
+              <Card>
+                <div style={{ width: '100%', height: '100%', transform: 'rotateY(-20deg)', overflow: 'hidden' }}>
+                  <ContentEmptyCard />
+                </div>
+              </Card>
               <AlertIcon src='https://bclover-mobile.vicgame.kr/svg/deco_contents.svg' alt='line-icon' />
-              <ContentEmptyCard />
+              <Card>
+                <div style={{ width: '100%', height: '100%', transform: 'rotateY(20deg)', overflow: 'hidden' }}>
+                  <ContentEmptyCard />
+                </div>
+              </Card>
             </ContentsCards>
-            <TabletContentItems/>
+            <TabletContentItems />
           </ContainerContent>
         </HomeContainer>
       </MainContainer>
