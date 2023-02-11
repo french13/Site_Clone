@@ -3,6 +3,7 @@ import { PlusCircleOutlined } from '@ant-design/icons'
 import { tabletSize } from "../styles/tabletSize"
 import Link from "next/link"
 import { boxAnimation } from "../styles/styleComponents"
+import TabletContentEmptyCard from "./TabletContentEmptyCard"
 
 const TabletContentCards = styled.ul`
 padding : 0;
@@ -45,19 +46,7 @@ position : relative;
 }
 `
 
-const TabletContentEmptyCard = styled.li`
-display : flex;
-justify-content : space-between;
-align-items : center;
-background-color : black;
-width : 300px;
-height : 90px;
-margin-bottom : 10px;
-padding : 0 25px;
-font-size : 22px;
-font-weight : 500;
-color : gray;
-`
+
 
 const TabletContentItems = () => {
   return (
@@ -78,18 +67,9 @@ const TabletContentItems = () => {
           <span>ワールド</span>
         </div>
       </TabletContentCard>
-      <TabletContentEmptyCard>
-        <div>COMING SOON</div>
-        <img src='https://bclover-mobile.vicgame.kr/svg/lock_contents.svg' width='20%' />
-      </TabletContentEmptyCard>
-      <TabletContentEmptyCard>
-        <div>COMING SOON</div>
-        <img src='https://bclover-mobile.vicgame.kr/svg/lock_contents.svg' width='20%' />
-      </TabletContentEmptyCard>
-      <TabletContentEmptyCard>
-        <div>COMING SOON</div>
-        <img src='https://bclover-mobile.vicgame.kr/svg/lock_contents.svg' width='20%' />
-      </TabletContentEmptyCard>
+      <TabletContentEmptyCard />
+      <TabletContentEmptyCard />
+      <TabletContentEmptyCard />
     </TabletContentCards>
   )
 }

@@ -3,13 +3,14 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styled, { keyframes } from 'styled-components'
 import Layout from '../components/Layout'
-import { homeBgVideo } from '../public/assets/imgSrc'
+import { homeBgVideo, indexPageLogo } from '../public/assets/imgSrc'
 import { RightCircleOutlined } from '@ant-design/icons'
 import { tabletSize } from '../styles/tabletSize'
 import { MainContainer, HomeContainer, boxAnimation } from '../styles/styleComponents'
-
+import { GetStaticProps, InferGetStaticPropsType } from 'next'
 const VideoStyle = styled.video`
-width : 2500px;
+position : absolute;
+object-fit : fill;
 `
 
 const ContainerContent = styled.div`
@@ -61,16 +62,18 @@ margin : 20px 0;
 
 
 const Home = () => {
+
+
   return (
     <Layout>
       <MainContainer>
         <VideoStyle autoPlay muted playsInline loop>
-          <source src={homeBgVideo} type='video/mp4' />
+          <source src={homeBgVideo} type='video/mp4'/>
         </VideoStyle>
         <HomeContainer>
           <ContainerContent  >
             <Imgdiv>
-              <img src='https://bclover-mobile.vicgame.jp/image/bc_main_logo_jp.webp' width={780}/>
+              <img src={indexPageLogo} width={780}/>
             </Imgdiv>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "320px" }}>
               <Titlediv>ブラッククローバーの <br /> 世界をゲームで体験！</Titlediv>
@@ -86,4 +89,19 @@ const Home = () => {
   )
 }
 
+
+// export const getStaticProps : GetStaticProps = async ()=>{
+//   const data = {
+
+//   }
+
+//   return {
+//     props : {
+//       item : data,
+//     }
+//   }
+// }
+
 export default Home
+
+

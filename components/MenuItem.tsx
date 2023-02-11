@@ -30,7 +30,7 @@ interface menuItem {
     link: string
 }
 
-const MenuItem = ({ item }: any) => {
+const MenuItem = ({ item } : any) => {
 
     const [translateX, setTranslateX] = useState<string | number>('-100%')
 

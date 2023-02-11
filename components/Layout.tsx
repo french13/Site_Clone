@@ -25,7 +25,6 @@ left : 80px;
   }
 `
 
-// ReactElemet, ReactNode 둘중에 좀더 미시적인 Element를 사용하였다. Node는 좀더 범위가 크다. 참고 블로그 https://merrily-code.tistory.com/209
 interface Props {
     children: ReactElement,
 }
@@ -33,13 +32,11 @@ interface Props {
 const Layout = ({ children }: Props) => {
     return (
         <Wrapper>
-            <Logo><Link href='/'><img src={logo} decoding="async" alt="logo" width={170} height={70}/></Link></Logo>
+            <Logo><Link href='/'><img src={logo} decoding="async" alt="logo" width={170} height={70} /></Link></Logo>
             <Header />
-            <LinkWrapper/>
-            <Row>
-                {children}
-            </Row>
-            <Footer/>
+            <LinkWrapper />
+            {children}
+            <Footer />
         </Wrapper>
     )
 }

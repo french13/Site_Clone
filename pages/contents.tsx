@@ -102,7 +102,7 @@ const Contents = () => {
   return (
     <Layout>
       <MainContainer>
-        <img src='https://bclover-mobile.vicgame.kr/image/contents/contents_back_1920.webp' alt="contents-bg" />
+        <img src='https://bclover-mobile.vicgame.kr/image/contents/contents_back_1920.webp' style={{position : 'absolute',objectFit : 'fill'}} alt="contents-bg" />
         <HomeContainer>
           <ContainerContent>
             <ContentsTitle>contents</ContentsTitle>

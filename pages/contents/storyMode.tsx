@@ -7,7 +7,9 @@ import Link from 'next/link'
 
 
 const VideoStyle = styled.video`
-width : 2500px;
+position : absolute;
+object-fit : fill;
+
 `
 const ContainerContent = styled.div`
 width : 100vw;
